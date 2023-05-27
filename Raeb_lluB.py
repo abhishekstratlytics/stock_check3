@@ -39,6 +39,7 @@ def main():
     uploaded_file = st.file_uploader("File_Upload")
     if uploaded_file:
         data = pd.read_csv(uploaded_file)
+	data = data.reset_index(drop=True)
     else:
         data = pd.read_csv("prices.csv")
 
