@@ -47,7 +47,7 @@ def main():
     rp = data.copy()
     # Pre-Processing
     rp = rp.rename(columns={ rp.columns[1]: "DATE" })
-    rp['DATE']=pd.to_datetime(rp['DATE']).dt.date
+    rp['DATE']=pd.to_datetime(rp['DATE'],errors='coerce').dt.date
     rp = rp[['DATE','SYMBOL',' CLOSE_PRICE']]
     processed_prices = rp.pivot_table(index='DATE',columns='SYMBOL',values=' CLOSE_PRICE')
     processed_prices = processed_prices.dropna(axis=1)
