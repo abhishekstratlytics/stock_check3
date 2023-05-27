@@ -200,7 +200,7 @@ def main():
         
         l=list(processed_prices.columns)
         del l[0]
-        st.subheader("How did you stock look like last year")
+        st.subheader("How did your stock look like last year")
         d=st.selectbox("Select your Stock",l)
         st.line_chart(processed_prices,x=processed_prices.columns[0],y=d)
         st.subheader("Compare your stock with any other stock")
