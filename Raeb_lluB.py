@@ -39,12 +39,12 @@ def main():
     uploaded_file = st.file_uploader("File_Upload")
     if uploaded_file:
         data = pd.read_csv(uploaded_file)
-	data = data.reset_index(drop=True)
     else:
         data = pd.read_csv("prices.csv")
 
     ### Pre-processing
     #rp = pd.read_csv('prices.csv',format='mixed') #raw prices
+    data = data.reset_index(drop =True)
     rp = data.copy()
     # Pre-Processing
     rp = rp.rename(columns={ rp.columns[1]: "DATE" })
