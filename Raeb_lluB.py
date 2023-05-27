@@ -33,8 +33,8 @@ def main():
     st.title("Raeb_lluB")
     st.image("Raeb_lluB.jpg",width=300)
     st.subheader("A Bull Bear Affair")
-    #st.write("Please provide the data in the following format")
-    #st.image("input.jpg")	
+    st.write("Please provide the data in the following format")
+    st.image("input.jpg")	
     nav= st.sidebar.radio("Navigation",["HOME","PREDICTION","PORTFOLIO"])
 
     ## Loading the data
