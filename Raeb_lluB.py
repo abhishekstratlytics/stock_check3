@@ -187,6 +187,8 @@ def main():
         rp[numeric_columns] = rp[numeric_columns].astype(int)
         st.write(rp.head())
         st.subheader("Processed Data")
+        numeric_columns = processed_prices.select_dtypes(include='number').columns
+        processed_prices[numeric_columns] = processed_prices[numeric_columns].astype(int)
         st.write(processed_prices.tail(5))
         
         l=list(processed_prices.columns)
@@ -205,6 +207,8 @@ def main():
     elif nav == "PREDICTION"  :
 
         st.header("Your Product Prediction")
+        numeric_columns = output_df.select_dtypes(include='number').columns
+        output_df[numeric_columns] = output_df[numeric_columns].astype(int)
         st.write(output_df.head(5))
         
         #col1,col2 = st.columns(2)
@@ -224,8 +228,12 @@ def main():
         sector = sector.round(decimals=0)
         st.bar_chart(data=sector, x="sector", y="amount_invested")
         st.write("Stock wise distribution")
+        numeric_columns = sol.select_dtypes(include='number').columns
+        sol[numeric_columns] = sol[numeric_columns].astype(int)
         st.write(sol)
         st.write("Sector wise distribution")
+        numeric_columns = sector.select_dtypes(include='number').columns
+        sector[numeric_columns] = sector[numeric_columns].astype(int)
         st.write(sector)
          
         st.download_button("Portfolio",sol.to_csv(),file_name = "Portfolio.csv",mime='text/csv')
