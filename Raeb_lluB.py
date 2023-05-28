@@ -183,6 +183,8 @@ def main():
     if nav == "HOME":
         st.subheader("HOME PAGE")
         st.subheader("Imported Data")
+        decimal_places = 1
+        st.dataframe(rp.round(decimal_places))
         st.write(rp.head())
         st.subheader("Processed Data")
         st.write(processed_prices.tail(5))
