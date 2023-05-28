@@ -208,7 +208,7 @@ def main():
 
         st.header("Your Product Prediction")
         numeric_columns = output_df.select_dtypes(include='number').columns
-        output_df[numeric_columns] = output_df[numeric_columns].astype(int)
+        output_df["Price"] = output_df["Price"].astype(int)
         st.write(output_df.head(5))
         
         #col1,col2 = st.columns(2)
